@@ -1,19 +1,44 @@
-Social Network
-Инструкция для поднятия frontend части
-#frontend #instruction
-1. скопировать сходники фронта, которые находятся в "/resources/static", в отдельную папку
-3. в текстовом редакторе в папке фронтенда src/settings/axios.js изменить axios.defaults.baseURL на localhost:8084
-4. в application.properties бэкенда выставить server.port в значение 8084 (надо чтобы порты фронта и бэка совпадали)
-5. установить npm (входит в nodejs) со страницы https://nodejs.org/en/download/
-6. запустить консоль от админа (cmd for windows) 
-7. выполнить 'npm start' в папке фронтенда
-8. зайти в браузере на localhost:8080, все должно работать
-9. (опционально) Если возникнет ошибка с неустановленным webpack-dev-server выполнить npm install -g webpack-dev-server (глобально установит пакет) и добавить в environment variables строку %USERPROFILE%\AppData\Roaming\npm\
-    Если возникнет ошибка npm ERR! code ELIFECYCLE выполнить последовательно:
-    a) npm cache clean --force
-    b) удалить node_modules и package-lock.json в папке фронта (rm -rf node_modules package-lock.json для линукс дистров)
-    c) npm install
-    d) npm start
-При использовании PostgreSQL 
-Создать базу "snet", прописать в файле "application-dev.properties" логин и пароль пользователя. 
-В слуае использования MySQL - поменять URL базы в файле "application-dev.properties".
+# Social Network
+This is ordinary social network.
+
+# Libraries
+- JDK 1.8
+- Lombok 1.10.10
+- Liquibase
+- Spring boot 
+- PostgreSQL
+
+# How to run 
+
+# backend
+
+- After download, write in "application-dev.properties" url path to your database, username and password.
+This needs to made how for spring.datasource properties and as well as for spring.liquibase properties   
+- Write proprties for "Email service" in "application-dev.properties". It's needs for sends restore password links to users. 
+I'm using for this gmail, so if you wanna used for this something else, don't forget to rewrite other properties, like  "spring.mail.host" 
+
+# frontend
+
+- copy the similarities of the front, which are located in "/ resources / static", into a separate folder
+
+- in a text editor in the frontend folder src / settings / axios.js change axios.defaults.baseURL to localhost: 8084
+
+- in the application.properties of the backend, set server.port to the value 8084 (it is necessary that the ports of the front and back are the same)
+
+- install npm (included in nodejs) from https://nodejs.org/en/download/
+
+- run the console from the admin (cmd for windows)
+
+- execute 'npm start' in the frontend folder
+
+- go to localhost: 8080 in the browser, everything should work
+
+- (optional) If an error occurs with uninstalled webpack-dev-server run npm install -g webpack-dev-server (globally install the package) and add to environment
+variables string% USERPROFILE% \ AppData \ Roaming \ npm \
+    If you get npm ERR! code ELIFECYCLE execute sequentially:
+    
+    - npm cache clean --force
+    - удалить node_modules и package-lock.json в папке фронта (rm -rf node_modules package-lock.json для линукс дистров)
+    - npm install
+    - npm start
+    
